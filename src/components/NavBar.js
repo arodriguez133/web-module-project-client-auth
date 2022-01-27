@@ -6,10 +6,13 @@ const NavBar = () => {
         <div>
             <h1>Friends DataBase</h1>
             <nav>
-                <ul>
-                    
-                </ul>
+                <Link to="/login">Login</Link>
+                <Link to="/friends">Friend List</Link>
+                <Link to="/addfriend">Add Friend</Link>
+                <Link to="/logout">Logout</Link>
             </nav>
         </div>
     )
 }
+
+export default NavBar;
