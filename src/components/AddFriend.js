@@ -1,14 +1,17 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 
 
-
-const AddFriend = () => {
+const AddFriend = (props) => {
 
     const [value, setValue] = useState({
         name: "",
         email: "",
+        id: Date.now(),
     })
+
+
 
     
     const handleChange = (e) => {
@@ -19,13 +22,27 @@ const AddFriend = () => {
     }
 
     const handleSubmit = (e) => {
+        const {push} = props.history;
         e.preventDefault();
+        const token = localStorage.getItem('token');
+        axios.post('http://localhost:9000/api/friends', value, {headers: {authorization: token}})
+        .then((res) => {
+            console.log(res);
+            push("/friends");
+        })
+        .err((err) => {
+            console.log(err);
+        })
         setValue({
             ...value,
             name: "",
             email: "",
         })
     }
+
+   
+        
+    
 
 
     return (
