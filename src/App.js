@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
 import FriendsList from './components/FriendsList';
+import AddFriend from './components/AddFriend';
 import PrivateRoute from './components/PrivateRoute';
 
 
@@ -15,6 +16,7 @@ function App(props) {
       <NavBar/>
       <Route path='/login' component={Login}/>
         <PrivateRoute exact path="/friends" comoponent={FriendsList} />
+      <Route path='/friends/add' component={AddFriend}/>
     </div>
   );
 }
