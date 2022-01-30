@@ -1,18 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import axios from 'axios';
 
 
 const FriendsList = () => {
-    axios.get('http://localhost:9000')
-    .then(res=>{console.log(res)})
-    .catch(err => console.log('This is the error', err));
 
-       
+    const [friends, setFriends] = useState([]);
     
-     
+    const getData = () => {
+        const token = localStorage.getItem("token");
+        axios.get("http://localhost:9000/api/friends", {headers: {authorization: token}})
+        .then((res) => {
+            console.log(res.data);
+            setFriends(res.data);
+        })
+        .catch((err) => {console.log(err)});
+    };
+   
+
+    useEffect(()=>{
+        getData();
+    },[]);
+
+        console.log(friends);
     return(
         <div>
-            <p>Test</p>
+            {friends.map((friend)=>(
+                <div>
+                    <p>{friend.name}</p>
+                </div>
+            ))}
         </div>
     )
 }

@@ -6,15 +6,15 @@ import NavBar from './components/NavBar';
 import FriendsList from './components/FriendsList';
 import PrivateRoute from './components/PrivateRoute';
 
-function App() {
+
+function App(props) {
+
   return (
     <div className="App">
       <h2>Client Auth Project</h2>
       <NavBar/>
       <Route path='/login' component={Login}/>
-        <PrivateRoute exact path="/friends">
-            <FriendsList/>
-        </PrivateRoute>
+        <PrivateRoute exact path="/friends" comoponent={FriendsList} />
     </div>
   );
 }
