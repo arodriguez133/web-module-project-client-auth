@@ -5,6 +5,7 @@ import Login from './components/Login';
 import NavBar from './components/NavBar';
 import FriendsList from './components/FriendsList';
 import AddFriend from './components/AddFriend';
+import Logout from './components/Logout';
 import PrivateRoute from './components/PrivateRoute';
 
 
@@ -17,6 +18,7 @@ function App(props) {
       <Route path='/login' component={Login}/>
         <PrivateRoute exact path="/friends" comoponent={FriendsList} />
       <Route path='/friends/add' component={AddFriend}/>
+      <Route path="/logout" component={Logout}/>
     </div>
   );
 }

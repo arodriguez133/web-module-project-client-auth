@@ -30,7 +30,7 @@ const AddFriend = (props) => {
             console.log(res);
             push("/friends");
         })
-        .err((err) => {
+        .catch((err) => {
             console.log(err);
         })
         setValue({
